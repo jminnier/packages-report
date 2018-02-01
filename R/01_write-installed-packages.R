@@ -20,7 +20,7 @@ library(here)
 ## it an example of what yours should look like
 
 
-ip <- installed.packages() %>%
+installed.packages() %>%
   as_tibble() %>%
   select(Package:Priority, Built) %>%
   write_csv(path=here("data","installed-packages.csv"))
