@@ -25,8 +25,11 @@ write_csv(ipd,path=here("data","add-on-packages.csv"))
 ipd_freqtable <- ipd %>%
   count(Built) %>%
   mutate(prop = n / sum(n))
+ipd_freqtable
 
 ## write this data frame to data/add-on-packages-freqtable.csv
+write_csv(ipd_freqtable,path=here("data","add-on-packages-freqtable.csv"))
+
 ## YES overwrite the files that are there now
 ## they came from me (Jenny)
 ## they are just examples
