@@ -19,7 +19,7 @@ Workshop challenge checklist
 Overview
 --------
 
-The goal of packages-report is to FINISH THIS SENTENCE.
+The goal of packages-report is to explore the packages that I have installed in my library.
 
 I have 5 add-on packages installed.
 

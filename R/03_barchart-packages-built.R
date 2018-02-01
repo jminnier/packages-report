@@ -12,7 +12,7 @@ p <- ggplot(freq, aes(x = Built, y = n, fill=Built)) +
 
 ## write this barchart to figs/built-barchart.png
 ## if you use ggplot2, ggsave() will help
-ggsave(plot=p,filename="built-barchart.png",path=here("figs"))
+ggsave(plot=p,filename="built-barchart.png",path=here("figs"),height = 3)
 
 ## YES overwrite the file that is there now
 ## that came from me (Jenny)
