@@ -3,7 +3,6 @@ library(here)
 
 ## create a data frame from data/installed-packages.csv
 ## with, e.g., readr::read_csv() or read.csv()
-ipd <- read_csv(here("data","installed-packages.csv"))
 
 
 
@@ -13,19 +12,20 @@ ipd <- read_csv(here("data","installed-packages.csv"))
 # apt <- ipt %>%
 #   filter(LibPath == .libPaths()[1]) %>%
 #   select(Package, Built)
-ipd <- ipd %>% filter(!Priority%in%c("base","recommended")) %>% select(Package, Built)
+
+ipd <- read_csv(here("data","installed-packages.csv")) %>%
+  filter(!Priority%in%c("base","recommended")) %>%
+  select(Package, Built)
 ## Note, I only have one library, so I just filtered out the base/recommended
 
 ## write this new, smaller data frame to data/add-on-packages.csv
 write_csv(ipd,path=here("data","add-on-packages.csv"))
 
-
 ## make a frequency table of package by the version in Built
 ## if you use dplyr, code like this will work:
-ipd_freqtable <- ipd %>%
+(ipd_freqtable <- ipd %>%
   count(Built) %>%
-  mutate(prop = n / sum(n))
-ipd_freqtable
+  mutate(prop = n / sum(n)))
 
 ## write this data frame to data/add-on-packages-freqtable.csv
 write_csv(ipd_freqtable,path=here("data","add-on-packages-freqtable.csv"))
